@@ -3,34 +3,32 @@
 #include <string.h>
 #include <math.h>
 
-// Performs basic arithmetic operations (+, -, *, /)
-void basic_operations() {
+void operacoes_basicas() {
     float num1, num2;
     char op;
 
-    printf("\nEnter the expression (e.g., 10 + 5): ");
+    printf("\nDigite a expressao (ex: 10 + 5): ");
     scanf("%f %c %f", &num1, &op, &num2);
 
     switch (op) {
-        case '+': printf("Result: %.2f\n", num1 + num2); break;
-        case '-': printf("Result: %.2f\n", num1 - num2); break;
-        case '*': printf("Result: %.2f\n", num1 * num2); break;
-        case '/':
+        case '+': printf("Resultado: %.2f\n", num1 + num2); break;
+        case '-': printf("Resultado: %.2f\n", num1 - num2); break;
+        case '*': printf("Resultado: %.2f\n", num1 * num2); break;
+        case '/': 
             if (num2 != 0)
-                printf("Result: %.2f\n", num1 / num2);
+                printf("Resultado: %.2f\n", num1 / num2);
             else
-                printf("Error: Division by zero!\n");
+                printf("Erro: Divisao por zero!\n");
             break;
-        default: printf("Invalid operator!\n");
+        default: printf("Operador invalido!\n");
     }
 }
 
-// Converts a binary number to decimal
-void binary_to_decimal() {
+void binario_para_decimal() {
     char bin[33];
     int decimal = 0;
 
-    printf("Enter a binary number: ");
+    printf("Digite um numero binario: ");
     scanf("%s", bin);
 
     for (int i = 0; i < strlen(bin); i++) {
@@ -40,17 +38,16 @@ void binary_to_decimal() {
     printf("Decimal: %d\n", decimal);
 }
 
-// Converts a decimal number to binary
-void decimal_to_binary() {
+void decimal_para_binario() {
     int num;
     char bin[33];
     int i = 0;
 
-    printf("Enter a decimal number: ");
+    printf("Digite um numero decimal: ");
     scanf("%d", &num);
 
     if (num == 0) {
-        printf("Binary: 0\n");
+        printf("Binario: 0\n");
         return;
     }
 
@@ -60,32 +57,30 @@ void decimal_to_binary() {
     }
     bin[i] = '\0';
 
-    // Reverse the binary string
+    // Inverter string
     for (int j = 0; j < i / 2; j++) {
         char temp = bin[j];
         bin[j] = bin[i - j - 1];
         bin[i - j - 1] = temp;
     }
 
-    printf("Binary: %s\n", bin);
+    printf("Binario: %s\n", bin);
 }
 
-// Converts a decimal number to hexadecimal
-void decimal_to_hex() {
+void decimal_para_hex() {
     int num;
 
-    printf("Enter a decimal number: ");
+    printf("Digite um numero decimal: ");
     scanf("%d", &num);
 
     printf("Hexadecimal: %X\n", num);
 }
 
-// Converts a hexadecimal number to decimal
-void hex_to_decimal() {
+void hex_para_decimal() {
     char hex[20];
     int decimal;
 
-    printf("Enter a hexadecimal number (e.g., 1A3): ");
+    printf("Digite um numero hexadecimal (ex: 1A3): ");
     scanf("%s", hex);
 
     sscanf(hex, "%x", &decimal);
@@ -93,32 +88,32 @@ void hex_to_decimal() {
     printf("Decimal: %d\n", decimal);
 }
 
-// Main program loop with menu
 int main() {
-    int option;
+    int opcao;
 
     do {
-        printf("\n===== MULTI-BASE CALCULATOR =====\n");
-        printf("1. Basic arithmetic operations\n");
-        printf("2. Binary → Decimal\n");
-        printf("3. Decimal → Binary\n");
-        printf("4. Decimal → Hexadecimal\n");
-        printf("5. Hexadecimal → Decimal\n");
-        printf("0. Exit\n");
-        printf("Choose an option: ");
-        scanf("%d", &option);
+        printf("\n===== CALCULADORA MULTI BASE =====\n");
+        printf("1. Operacoes aritmeticas basicas\n");
+        printf("2. Binario para Decimal\n");
+        printf("3. Decimal para Binario\n");
+        printf("4. Decimal para Hexadecimal\n");
+        printf("5. Hexadecimal para Decimal\n");
+        printf("0. Sair\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
 
-        switch(option) {
-            case 1: basic_operations(); break;
-            case 2: binary_to_decimal(); break;
-            case 3: decimal_to_binary(); break;
-            case 4: decimal_to_hex(); break;
-            case 5: hex_to_decimal(); break;
-            case 0: printf("Exiting...\n"); break;
-            default: printf("Invalid option!\n");
+        switch(opcao) {
+            case 1: operacoes_basicas(); break;
+            case 2: binario_para_decimal(); break;
+            case 3: decimal_para_binario(); break;
+            case 4: decimal_para_hex(); break;
+            case 5: hex_para_decimal(); break;
+            case 0: printf("Encerrando...\n"); break;
+            default: printf("Opçao invalida!\n");
         }
 
-    } while(option != 0);
+    } while(opcao != 0);
 
     return 0;
 }
+
