@@ -109,7 +109,7 @@ int main() {
             case 4: decimal_para_hex(); break;
             case 5: hex_para_decimal(); break;
             case 0: printf("Encerrando...\n"); break;
-            default: printf("Opçao invalida!\n");
+            default: printf("Opcao invalida!\n");
         }
 
     } while(opcao != 0);
